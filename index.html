@@ -1,26 +1,28 @@
 <!Doctype html>
-<!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" type="text/css" href="style.css">
-
-<meta charset="utf-8">
-     
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
-   
-  <title>Baseball</title>
-</head>
-<body>
-
-  <h2>Select handedness of the player</h2>
-  <div id="Bttn">
-</div>
-<script src="script.js" type="text/javascript">
-</script>
-</body>
-
-<script type="text/javascript">
-  d3.csv("baseball_data.csv",draw);
-</script>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<meta charset="utf-8">	     
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+	    <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+		<title>Baseball</title>
+	</head>
+	<body>
+	    <h2>Select to see all players</h2>
+	    <div id="MainBttn">
+	    	<button id="full" type="button">All Players</button>
+	    </div>	
+	    <h2>Select handedness of the player</h2>
+	    <div id="HandBttn">
+       		<button id="lefty" type="input" >Left Handed</button>
+       		<button id="righty" type="input" >Right Handed</button>
+       		<button id="bothHand" type="input" >Both Handed</button>
+		</div>
+		<h1>Performance Of Baseball Players </h1>
+		<script src="script.js" type="text/javascript">
+		</script>
+	</body>
+    <script type="text/javascript">
+    	 d3.csv("baseball_data.csv",draw);
+	</script>
 </html>

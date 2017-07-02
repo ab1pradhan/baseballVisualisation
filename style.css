@@ -1,35 +1,49 @@
 h2{
 	font-size: 20px;
+	margin: 5px;
+}
+
+h1{
+  margin : 30px 0px 0px 220px;
+  font-family:  Helvetica, sans-serif;
+  font-weight: 1500;
 }
 
 body{
 	  fill :red;
-	  		}
- 
-body {
-  font-family: "Exo 2", "Helvetica Neue", Helvetica, sans-serif;
-  font-weight: 300;
-  font-size: 1.2em;
-  line-height: 1.2em;
-  background: #FDF6E3;
-  color: #475B62;
+	  line-height: 1.2em;
+	  background: #FDF6E3;
+	  color: #475B62;
 }
  
 
 .dimple-r{
 	fill: #259286;
-	background: #FDF6E3;
-	color: #475B62;
+	stroke: #259286 ;
+	opacity: 0.5;
 }
 
 .dimple-b{
 	fill:#C61C6F;
-	background: #FDF6E3;
-	color: #475B62;
+	stroke:#C61C6F ;
+	
 }
 
 .dimple-l{
 	fill: yellow;
-	background: #FDF6E3;
-	color: #475B62;
-	border: black; }
+	stroke: yellow;
+	opacity: 0.5;
+}
+
+.lineText1 , .lineText2 , .olineText1 , .olineText2{
+	stroke:black;
+	fill: black;
+	font-size: 15px;
+	font-family:  Helvetica, sans-serif;
+	;
+}
+
+.lineLine1 , .lineLine2, .olineLine1 , .olineLine2{
+	stroke:black;
+	stroke-dasharray:5;
+}
