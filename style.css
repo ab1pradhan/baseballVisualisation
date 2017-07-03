@@ -1,12 +1,23 @@
-h2{
-	font-size: 20px;
-	margin: 5px;
+h1{
+	
+	margin: 15px;
+	font-family:  Helvetica, sans-serif;
+	text-align: center;
 }
 
-h1{
-  margin : 30px 0px 0px 220px;
+h2{
+  margin : 20px 0px 0px 220px;
   font-family:  Helvetica, sans-serif;
   font-weight: 1500;
+}
+
+h3{
+   	margin:10px 80px 10px 80px;
+	font-family:  Helvetica, sans-serif;
+}
+p{
+	margin : 10px 100px 10px 100px;
+    font-family:  Helvetica, sans-serif;
 }
 
 body{
@@ -16,6 +27,15 @@ body{
 	  color: #475B62;
 }
  
+div{
+	margin : 10px 80px 10px 80px;
+}
+
+.heding{
+  margin : 20px 0px 0px 100px;
+  font-family:  Helvetica, sans-serif;
+  font-weight: 1500;
+}
 
 .dimple-r{
 	fill: #259286;

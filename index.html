@@ -5,24 +5,35 @@
 		<meta charset="utf-8">	     
 		<script src="http://d3js.org/d3.v3.min.js"></script>
 	    <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
-		<title>Baseball</title>
+		<title>Baseball Players</title>
 	</head>
 	<body>
-	    <h2>Select to see all players</h2>
+	    <h1> PROJECT </h1>
+        <h1>Data Visualization With D3</h1>
+        <h2 class="heding">Make your dream baseball team</h2>
+       
+        <p>The chart shows performance of baseball players using their Home Runs (HR) and average scores (avg). Make a strong team by selecting hitters from top 5% players. Decide players based on their batting orientation and the trade off between high average scores and home runs.</p>
+        <p> The visualization was created using data set containing 1,157 baseball players including their handedness (right or left handed), height (in inches), weight (in pounds), batting average, and home runs.</p>
+	    
+	    <h3>Select to see all players</h3>
+	    
 	    <div id="MainBttn">
 	    	<button id="full" type="button">All Players</button>
 	    </div>	
-	    <h2>Select handedness of the player</h2>
-	    <div id="HandBttn">
+	    
+	    <h3>Select handedness of the player</h3>
+	    
+	    <div id="HandBttn"> 
        		<button id="lefty" type="input" >Left Handed</button>
        		<button id="righty" type="input" >Right Handed</button>
        		<button id="bothHand" type="input" >Both Handed</button>
 		</div>
-		<h1>Performance Of Baseball Players </h1>
+		<h2>Performance Of Baseball Players </h2>
 		<script src="script.js" type="text/javascript">
 		</script>
 	</body>
     <script type="text/javascript">
+     /* Read data and */
     	 d3.csv("baseball_data.csv",draw);
 	</script>
 </html>

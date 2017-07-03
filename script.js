@@ -14,25 +14,30 @@ function draw(data){
                 .append("g")
                 .attr("class", "chart");
 
-               
-     var mychart = new dimple.chart(svg,data);
+      /*  Creating chart with dimple */         
+     var mychart = new dimple.chart(svg,data);      
+      mychart.setMargins("10%", "2%", "2%", "10%");
      var x = mychart.addMeasureAxis("x","avg");
+         x.ticks = 20;
+         x.tickFormat = ',.2f';                   // changing ticks format
      var y = mychart.addMeasureAxis("y","HR");
-     x.ticks = 20;
-     x.tickFormat = ',.2f';
+         y.overrideMax = 600;                     //fixing y axix
+    
      mychart.addSeries(["name","handedness","HR","avg"],dimple.plot.bubble);
      mychart.draw();
      
+
+     /* Creating legend */
      svg.append("rect")
          .attr("x",180)
-         .attr("y", 83)
-         .attr("width",84)
-         .attr("height",80)
+         .attr("y", 46)
+         .attr("width",91)
+         .attr("height",90)
          .style("fill","#D0D3D4");
 
      svg.append("circle")        
 	    .attr("cx", 200)           
-	    .attr("cy", 115)           
+	    .attr("cy", 85)           
 	    .attr("r", 6)             
 	    .style("stroke", "yellow")    
 	    .style("fill", "yellow");
@@ -40,12 +45,12 @@ function draw(data){
 	  svg.append("text")        
 		  .style("fill", "black")    
 	      .attr("x", 210)      
-	   	  .attr("y", 120)     
+	   	  .attr("y", 90)     
 	      .text("Left");
 
 	 svg.append("circle")        
 	    .attr("cx", 200)           
-	    .attr("cy", 130)           
+	    .attr("cy", 100)           
 	    .attr("r", 6)               
 	    .style("stroke", "#259286")    
 	    .style("fill", "#259286");
@@ -53,12 +58,12 @@ function draw(data){
 	 svg.append("text")        
 		  .style("fill", "black")    
 	      .attr("x", 210)      
-	   	  .attr("y", 135)     
+	   	  .attr("y", 105)     
 	      .text("Right");
 
 	 svg.append("circle")        
 	    .attr("cx", 200)           
-	    .attr("cy", 145)           
+	    .attr("cy", 115)           
 	    .attr("r", 6)                
 	    .style("stroke", "#C61C6F")    
 	    .style("fill", "#C61C6F"); 
@@ -66,38 +71,39 @@ function draw(data){
 	 svg.append("text")        
 		  .style("fill", "black")    
 	      .attr("x", 210)      
-	   	  .attr("y", 150)     
+	   	  .attr("y", 120)     
 	      .text("Both");
 
      svg.append("text")        
 		  .style("fill", "black")    
-	      .attr("x", 184)      
-	   	  .attr("y", 99)     
+	      .attr("x", 188)      
+	   	  .attr("y", 68)     
 	      .text("Handedness");
 
+/* Adding 5% marker lines */
      svg.append("line")
-	              .attr("x1", 667)
-	              .attr("x2", 667)
+	              .attr("x1", 724)
+	              .attr("x2", 724)
 	              .attr("y1", 450)
-	              .attr("y2", 50)
+	              .attr("y2", 10)
 	              .attr('class', 'olineLine1');
 
 	 svg.append("line")
 	             .attr("x1", 95)
-	             .attr("x2", 812)
-	             .attr("y1", 316)
-	             .attr("y2", 316)
+	             .attr("x2", 882)
+	             .attr("y1", 303)
+	             .attr("y2", 303)
 	             .attr('class', 'olineLine2'); 
      
      svg.append("text")
 	             .attr("dx", 95)
-	             .attr("dy", 312)
-	             .text("Top 5% high Home Run Scores")
+	             .attr("dy", 299)
+	             .text("Top 5% high Home Run Scorers")
 	             .attr('class', 'olineText1');
 
 	 svg.append("text")
-	             .attr("dx", 668)
-	             .attr("dy", 70)
+	             .attr("dx", 727)
+	             .attr("dy", 44)
 	             .text("Top 5% high avg")
 	             .attr('class', 'olineText2');
             
@@ -107,6 +113,7 @@ function draw(data){
  					.domain([0,0.39]);
 
 
+/* Adding action to buttons on click*/
      d3.select("#full").on("click", function(d) {
 
      	     d3.select("line.lineLine1").remove();
@@ -119,28 +126,28 @@ function draw(data){
              mychart.draw(1000);
 
              svg.append("line")
-	              .attr("x1", 667)
-	              .attr("x2", 667)
+	              .attr("x1", 724)
+	              .attr("x2", 724)
 	              .attr("y1", 450)
-	              .attr("y2", 50)
+	              .attr("y2", 10)
 	              .attr('class', 'olineLine1');
              
 	         svg.append("line")
 	             .attr("x1", 95)
-	             .attr("x2", 812)
-	             .attr("y1", 316)
-	             .attr("y2", 316)
+	             .attr("x2", 882)
+	             .attr("y1", 303)
+	             .attr("y2", 303)
 	             .attr('class', 'olineLine2'); 
              
              svg.append("text")
 	             .attr("dx", 95)
-	             .attr("dy", 312)
-	             .text("Top 5% high Home Run Scores")
+	             .attr("dy", 299)
+	             .text("Top 5% high Home Run Scorers")
 	             .attr('class', 'olineText1');
 
 	         svg.append("text")
-	             .attr("dx", 668)
-	             .attr("dy", 70)
+	             .attr("dx", 727)
+	             .attr("dy", 44)
 	             .text("Top 5% high avg")
 	             .attr('class', 'olineText2');
           });
@@ -157,33 +164,33 @@ function draw(data){
         	 d3.select("text.lineText2").remove();
 
              data_select = d;
-             mychart.data = dimple.filterData(data, "handedness", 'L');
+             mychart.data = dimple.filterData(data, "handedness", 'L');  //filtering data
              mychart.draw(1000);
      
              svg.append("line")
-	              .attr("x1", 662)
-	              .attr("x2", 662)
+	              .attr("x1", 742)
+	              .attr("x2", 742)
 	              .attr("y1", 450)
-	              .attr("y2", 50)
+	              .attr("y2", 10)
 	              .attr('class', 'lineLine1');
 
 	         svg.append("line")
 	             .attr("x1", 95)
-	             .attr("x2", 812)
-	             .attr("y1", 349)
-	             .attr("y2", 349)
+	             .attr("x2", 882)
+	             .attr("y1", 290)
+	             .attr("y2", 290)
 	             .attr('class', 'lineLine2'); 
      
              svg.append("text")
 	             .attr("dx", 95)
-	             .attr("dy", 342)
-	             .text("Top 10% high Home Run Scorers")
+	             .attr("dy", 285)
+	             .text("Top 5% Home Run Scorers")
 	             .attr('class', 'lineText1');
 
              svg.append("text")
-	             .attr("dx", 668)
-	             .attr("dy", 70)
-	             .text("Top 10% high avg")
+	             .attr("dx", 748)
+	             .attr("dy", 44)
+	             .text("Top 5% high avg")
 	             .attr('class', 'lineText2');
                          
              });
@@ -205,28 +212,28 @@ function draw(data){
              mychart.draw(1000);
 
              svg.append("line")
-	              .attr("x1", 662)
-	              .attr("x2", 662)
+	              .attr("x1", 719)
+	              .attr("x2", 719)
 	              .attr("y1", 450)
-	              .attr("y2", 50)
+	              .attr("y2", 10)
 	              .attr('class', 'lineLine1');
 
 	         svg.append("line")
 	             .attr("x1", 95)
-	             .attr("x2", 812)
-	             .attr("y1", 305)
-	             .attr("y2", 305)
+	             .attr("x2", 882)
+	             .attr("y1", 303)
+	             .attr("y2", 303)
 	             .attr('class', 'lineLine2'); 
      
              svg.append("text")
 	             .attr("dx", 95)
-	             .attr("dy", 298)
+	             .attr("dy", 297)
 	             .text("Top 5% high Home Run Scorers")
 	             .attr('class', 'lineText1');
 
              svg.append("text")
-	             .attr("dx", 668)
-	             .attr("dy", 70)
+	             .attr("dx", 726)
+	             .attr("dy", 44)
 	             .text("Top 5% high avg")
 	             .attr('class', 'lineText2');
                     
@@ -249,29 +256,29 @@ function draw(data){
              mychart.draw(1000);
              
              svg.append("line")
-	              .attr("x1", 647)
-	              .attr("x2", 647)
+	              .attr("x1", 724)
+	              .attr("x2", 724)
 	              .attr("y1", 450)
-	              .attr("y2", 50)
+	              .attr("y2", 10)
 	              .attr('class', 'lineLine1');
 
 	         svg.append("line")
 	             .attr("x1", 95)
-	             .attr("x2", 812)
-	             .attr("y1", 356)
-	             .attr("y2", 356)
+	             .attr("x2", 882)
+	             .attr("y1", 336)
+	             .attr("y2", 336)
 	             .attr('class', 'lineLine2'); 
      
              svg.append("text")
 	             .attr("dx", 95)
-	             .attr("dy", 350)
-	             .text("Top 10% high Home Run Scorers")
+	             .attr("dy", 330)
+	             .text("Top 5% high Home Run Scorers")
 	             .attr('class', 'lineText1');
 
              svg.append("text")
-	             .attr("dx", 660)
-	             .attr("dy", 70)
-	             .text("Top 10% high avg")
+	             .attr("dx", 730)
+	             .attr("dy", 44)
+	             .text("Top 5% high avg")
 	             .attr('class', 'lineText2');
             });
         
