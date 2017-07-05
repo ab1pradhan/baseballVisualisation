@@ -13,6 +13,8 @@
         <h2 class="heding">Make your dream baseball team</h2>
        
         <p>The chart shows performance of baseball players using their Home Runs (HR) and average scores (avg). Make a strong team by selecting hitters from top 5% players. Decide players based on their batting orientation and the trade off between high average scores and home runs.</p>
+        <p>The 95% quantile Home Runs for all players is 200 and avergage score is 0.28 .The top right area have players with high average and  Home runs. The 95% quantiles for both home runs (219) and average scores (0.2875) for Left-handed players is highest .There are many left-handed top performers even there are less of player with such handedness in total. The probable reason is that pitchers are not comfortable with such players. The 95% quantile home for right-handed players is approximately same as that of all players while they have lower 95% quantile average scores. There are more right-handed players in the top right area which belongs to players with high home runs and average scores. Both-handed players are less in number and have lowest 95% quantile home runs at 150. Overall, it can be said that Left-handed players are top performers and would be the best bet to choose from all players for your team.
+        </p>
         <p> The visualization was created using data set containing 1,157 baseball players including their handedness (right or left handed), height (in inches), weight (in pounds), batting average, and home runs.</p>
 	    
 	    <h3>Select to see all players</h3>
@@ -33,7 +35,7 @@
 		</script>
 	</body>
     <script type="text/javascript">
-     /* Read data and */
-    	 d3.csv("baseball_data.csv",draw);
+        /* Read data and */
+    	d3.csv("baseball_data.csv",draw);
 	</script>
 </html>

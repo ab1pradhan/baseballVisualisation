@@ -1,0 +1,35 @@
+h2{
+	font-size: 20px;
+}
+
+body{
+	  fill :red;
+	  		}
+ 
+body {
+  font-family: "Exo 2", "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  background: #FDF6E3;
+  color: #475B62;
+}
+ 
+
+.dimple-r{
+	fill: #259286;
+	background: #FDF6E3;
+	color: #475B62;
+}
+
+.dimple-b{
+	fill:#C61C6F;
+	background: #FDF6E3;
+	color: #475B62;
+}
+
+.dimple-l{
+	fill: yellow;
+	background: #FDF6E3;
+	color: #475B62;
+	border: black; }
